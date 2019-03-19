@@ -1,0 +1,11 @@
+<launch>
+	
+	<arg name="bd_list" default="0TFDFCE00503911"/>
+
+    <node name="livox_lidar_publisher" pkg="display_lidar_points" 
+	      type="display_lidar_points_node" required="true"
+	      output="screen" args="$(arg bd_list)"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" respawn="true"
+	      args="-d $(find display_lidar_points)/config/display_lidar_points.rviz"/>
+</launch>

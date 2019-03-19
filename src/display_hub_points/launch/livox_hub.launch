@@ -1,0 +1,11 @@
+<launch>
+	
+	<arg name="bd_list" default="100000000000000"/>
+
+    <node name="livox_hub_publisher" pkg="display_hub_points" 
+	      type="display_hub_points_node" required="true"
+	      output="screen" args="$(arg bd_list)"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" respawn="true"
+	      args="-d $(find display_hub_points)/config/display_hub_points.rviz"/>
+</launch>
